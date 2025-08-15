@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>TikTok Ratespiel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .tiktok-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px 0;
+    }
+
+    .tiktok-list li {
+      margin-bottom: 5px;
+    }
+
+    .entry-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .reveal {
+      background-color: #444;
+      padding: 8px 12px;
+      cursor: pointer;
+      color: #ccc;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .answer {
+      margin-top: 10px;
+      background-color: #222;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .controls {
+      margin-top: 30px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Farben je Slide */
+    .slide-blau a { color: #005bbb; }
+    .controls.blaue-buttons button { background-color: #007bff; }
+
+    .slide-gruen a { color: #228B22; }
+    .controls.gruene-buttons button { background-color: #28a745; }
+
+    .slide-lila a { color: #a020f0; }
+    .controls.lila-buttons button { background-color: #a855f7; }
+
+    .slide-orange a { color: #ff8c00; }
+    .controls.orange-buttons button { background-color: #ff7f00; }
+
+    .slide-gelb a { color: #ffd700; }
+    .controls.gelbe-buttons button { background-color: #ffea00; color: #111; }
+
+    .slide-danke a { color: #fff; }
+    .controls.danke-buttons button { background-color: #555; }
+
+    .controls button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="slides">
+      <!-- Slide 1 -->
+      <div class="slide active slide-blau">
+        <h2>Slide 1</h2>
+        <ul class="tiktok-list">
+          <li><a href="https://vm.tiktok.com/ZNdQ1Dm5g/">TikTok 1</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdQ16Wfm/">TikTok 2</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdQ1hbHw/">TikTok 3</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdQ1fHVA/">TikTok 4</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdQ1AfML/">TikTok 5</a></li>
+        </ul>
+        <div class="entry-container">
+          <input type="text" placeholder="Von wem könnten diese TikToks sein?">
+          <div class="reveal" onclick="reveal(this)">🔒 Lösung anzeigen</div>
+          <div class="answer hidden">Fabo</div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide slide-gruen">
+        <h2>Slide 2</h2>
+        <ul class="tiktok-list">
+          <li><a href="https://www.tiktok.com/@craftattack_/video/7530004217340120342">TikTok 1</a></li>
+          <li><a href="https://www.tiktok.com/@cr_clips.de/video/7538757141239319830">TikTok 2</a></li>
+          <li><a href="https://www.tiktok.com/@ruhigeclipz/video/7538488851531173142">TikTok 3</a></li>
+          <li><a href="https://www.tiktok.com/@delanoforrester0/video/7537684635833142534">TikTok 4</a></li>
+          <li><a href="https://www.tiktok.com/@captainunderpantlover911/photo/7536863170787282183">TikTok 5</a></li>
+        </ul>
+        <div class="entry-container">
+          <input type="text" placeholder="Von wem könnten diese TikToks sein?">
+          <div class="reveal" onclick="reveal(this)">🔒 Lösung anzeigen</div>
+          <div class="answer hidden">Wichtiger</div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide slide-lila">
+        <h2>Slide 3</h2>
+        <ul class="tiktok-list">
+          <li><a href="https://vm.tiktok.com/ZNdCRekLH/">TikTok 1</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdCRLk3R/">TikTok 2</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdCRAq1t/">TikTok 3</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdCdEE7n/">TikTok 4</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdCRAf9N/">TikTok 5</a></li>
+        </ul>
+        <div class="entry-container">
+          <input type="text" placeholder="Von wem könnten diese TikToks sein?">
+          <div class="reveal" onclick="reveal(this)">🔒 Lösung anzeigen</div>
+          <div class="answer hidden">Faister</div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide slide-orange">
+        <h2>Slide 4</h2>
+        <ul class="tiktok-list">
+          <li><a href="https://vm.tiktok.com/ZNHs92E2tawM2-RVOQG/">TikTok 1</a></li>
+          <li><a href="https://www.tiktok.com/@gustaviuss/video/7535893822308453655?_r=1&_t=ZN-8yl7XOZjMsY">TikTok 2</a></li>
+          <li><a href="https://vm.tiktok.com/ZNHs9jJjuJCKj-tfIAo/">TikTok 3</a></li>
+          <li><a href="https://www.tiktok.com/@presiyusyowna/video/7528032988634942727?_r=1&_t=ZN-8yl7WWhLlv4">TikTok 4</a></li>
+          <li><a href="https://vm.tiktok.com/ZNHs9jNqrFU6Q-u27O1/">TikTok 5</a></li>
+        </ul>
+        <div class="entry-container">
+          <input type="text" placeholder="Von wem könnten diese TikToks sein?">
+          <div class="reveal" onclick="reveal(this)">🔒 Lösung anzeigen</div>
+          <div class="answer hidden">Huy</div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide slide-gelb">
+        <h2>Slide 5</h2>
+        <ul class="tiktok-list">
+          <li><a href="https://vm.tiktok.com/ZNdxoFoQK/">TikTok 1</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdxoke7L/">TikTok 2</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdxod7cg/">TikTok 3</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdxo1Lfw/">TikTok 4</a></li>
+          <li><a href="https://vm.tiktok.com/ZNdxoRemq/">TikTok 5</a></li>
+        </ul>
+        <div class="entry-container">
+          <input type="text" placeholder="Von wem könnten diese TikToks sein?">
+          <div class="reveal" onclick="reveal(this)">🔒 Lösung anzeigen</div>
+          <div class="answer hidden">Sophia</div>
+        </div>
+      </div>
+
+      <!-- Letzte Slide / Dankeseite -->
+      <div class="slide slide-danke">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+          <h2>Danke fürs Zuschauen! Lasst ein Like und Abo da</h2>
+          <img src="https://cdn.7tv.app/emote/01F6NPP6YG00013ACMMJP3W06V/3x" alt="7TV Emote" style="margin-top: 20px; width: 100px; height: 100px;">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Zurück</button>
+      <button onclick="nextSlide()">➡️ Weiter</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const controls = document.querySelector(".controls");
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[index].classList.add("active");
+
+      // Farbklasse für Buttons setzen
+      controls.classList.remove("blaue-buttons", "gruene-buttons", "lila-buttons", "orange-buttons", "gelbe-buttons", "danke-buttons");
+
+      const current = slides[index];
+      if (current.classList.contains("slide-blau")) {
+        controls.classList.add("blaue-buttons");
+      } else if (current.classList.contains("slide-gruen")) {
+        controls.classList.add("gruene-buttons");
+      } else if (current.classList.contains("slide-lila")) {
+        controls.classList.add("lila-buttons");
+      } else if (current.classList.contains("slide-orange")) {
+        controls.classList.add("orange-buttons");
+      } else if (current.classList.contains("slide-gelb")) {
+        controls.classList.add("gelbe-buttons");
+      } else if (current.classList.contains("slide-danke")) {
+        controls.classList.add("danke-buttons");
+      }
+
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      const next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function prevSlide() {
+      const prev = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prev);
+    }
+
+    function reveal(el) {
+      const answer = el.nextElementSibling;
+      if (answer.classList.contains("hidden")) {
+        answer.classList.remove("hidden");
+        el.innerText = "✅ Lösung ausblenden";
+      } else {
+        answer.classList.add("hidden");
+        el.innerText = "🔒 Lösung anzeigen";
+      }
+    }
+
+    // Initial anzeigen
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
